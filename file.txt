@@ -1,0 +1,250 @@
+-------------------------------------------------------------------------------------------------------------------
+Program 7
+-------------------------------------------------------------------------------------------------------------------
+
+Install Java JDK from Oracle JDK Downloads
+java --version
+
+Download Maven from Apache Maven Downloads
+Extract to:
+
+C:\Maven
+setx MAVEN_HOME "C:\Maven" /M
+setx PATH "%PATH%;C:\Maven\bin" /M
+
+Restart CMD
+mvn -v
+
+Create Maven project:
+
+mvn org.apache.maven.plugins:maven-archetype-plugin:3.2.1:generate "-DgroupId=com.example" "-DartifactId=demo-project" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"
+
+cd demo-project
+mvn compile
+mvn test
+mvn package
+java -cp target/demo-project-1.0-SNAPSHOT.jar com.example.App
+
+Add dependency inside pom.xml
+
+<dependency>
+    <groupId>com.google.code.gson</groupId>
+    <artifactId>gson</artifactId>
+    <version>2.10.1</version>
+</dependency>
+
+Download Gradle from Gradle Releases
+
+Extract to:
+
+C:\Gradle
+setx GRADLE_HOME "C:\Gradle" /M
+setx PATH "%PATH%;%GRADLE_HOME%\bin" /M
+
+Restart CMD
+gradle -v
+
+Create build.gradle
+
+plugins {
+    id 'java'
+}
+
+group = 'com.example'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+}
+
+Create settings.gradle
+
+rootProject.name = 'demo-project'
+
+gradle build
+gradle test
+java -cp build/libs/demo-project-1.0.jar com.example.App
+
+
+-------------------------------------------------------------------------------------------------------------------
+Program 8
+-------------------------------------------------------------------------------------------------------------------
+Install Java from Oracle JDK Downloads
+java --version
+
+Download Maven from Apache Maven Downloads
+Extract to:
+
+C:\Maven
+setx MAVEN_HOME "C:\Maven" /M
+setx PATH "%PATH%;C:\Maven\bin" /M
+
+Restart CMD
+mvn -v
+
+Create Maven project:
+
+mvn org.apache.maven.plugins:maven-archetype-plugin:3.2.1:generate "-DgroupId=com.example" "-DartifactId=demo-project" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"
+cd demo-project
+
+Project structure:
+
+demo-project/
+├── pom.xml
+└── src/
+    ├── main/java
+    └── test/java
+
+Open pom.xml:
+notepad pom.xml
+
+Basic structure:
+
+<project>
+    <groupId>com.example</groupId>
+    <artifactId>demo-project</artifactId>
+    <version>1.0-SNAPSHOT</version>
+</project>
+
+Add dependency inside <dependencies>:
+
+<dependency>
+    <groupId>com.google.code.gson</groupId>
+    <artifactId>gson</artifactId>
+    <version>2.10.1</version>
+</dependency>
+
+Add plugin inside pom.xml:
+
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.11.0</version>
+        </plugin>
+    </plugins>
+</build>
+
+Compile project:
+mvn compile
+
+Run tests:
+mvn test
+
+Package project:
+mvn package
+
+Run application:
+
+java -cp target/demo-project-1.0-SNAPSHOT.jar com.example.App
+or
+java -cp target/classes com.example.App
+
+
+
+-------------------------------------------------------------------------------------------------------------------
+Program 9
+-------------------------------------------------------------------------------------------------------------------
+Install Java from Oracle JDK Downloads
+java --version
+
+Download Maven from Apache Maven Downloads
+Extract to:
+
+C:\Maven
+setx MAVEN_HOME "C:\Maven" /M
+setx PATH "%PATH%;C:\Maven\bin" /M
+
+Restart CMD
+mvn -v
+
+Create Maven project:
+
+mvn org.apache.maven.plugins:maven-archetype-plugin:3.2.1:generate "-DgroupId=com.example" "-DartifactId=demo-project" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"
+cd demo-project
+
+Open App.java:
+
+notepad src\main\java\com\example\App.java
+
+Replace with:
+
+package com.example;
+
+public class App {
+    public static void main(String[] args) {
+        System.out.println("Hello Maven");
+    }
+}
+
+Compile:
+mvn compile
+
+Run tests:
+mvn test
+
+Package:
+mvn package
+
+Run application:
+java -cp target/classes com.example.App
+
+Delete:
+pom.xml
+ 
+Keep:
+src/
+
+Download Gradle from Gradle Releases
+
+Extract to:
+
+C:\Gradle 
+setx GRADLE_HOME "C:\Gradle" /M
+setx PATH "%PATH%;%GRADLE_HOME%\bin" /M
+
+Restart CMD
+gradle -v
+
+Create build.gradle:
+
+notepad build.gradle
+
+Paste:
+
+plugins {
+    id 'java'
+}
+
+group = 'com.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+}
+
+Create settings.gradle:
+
+notepad settings.gradle
+
+Paste:
+
+rootProject.name = 'demo-project'
+
+Build Gradle project:
+gradle build
+
+Run tests:
+gradle test
+
+Run application:
+java -cp build/classes/java/main com.example.App
